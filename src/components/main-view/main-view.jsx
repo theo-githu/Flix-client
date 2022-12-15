@@ -9,11 +9,11 @@ export const MainView = () => {
         fetch("https://myflix-api-1234.herokuapp.com/movies")
           .then((response) => response.json())
           .then((data) => {
-            const moviesFromApi = data.movies.map(() => {
+            const moviesFromApi = data.movies.map((movie) => {
                 return {
-                    id: _id,
-                    title: Title,
-                    rating: Rating
+                    id: movie._id,
+                    title: movie.Title,
+                    rating: movie.Rating
                 };
             });
             setMovies(moviesFromApi);
