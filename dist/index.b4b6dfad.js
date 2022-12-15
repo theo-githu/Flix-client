@@ -27268,7 +27268,7 @@ const MainView = ()=>{
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
-        fetch("https://myflix-api-1234.herokuapp.com/").then((response)=>response.json()).then((data)=>{
+        fetch("https://myflix-api-1234.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.docs.map(()=>{
                 return {
                     id: doc.key,
