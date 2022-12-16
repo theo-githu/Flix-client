@@ -6,10 +6,10 @@ export const MainView = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        fetch("https://openlibrary.org/search.json?q=star+wars")
+        fetch("https://myflix-api-1234.herokuapp.com/")
           .then((response) => response.json())
           .then((data) => {
-            console.log("books from api:", data);
+            console.log("movies from api:", data);
           });
       }, []);
 

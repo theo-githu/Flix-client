@@ -27134,8 +27134,8 @@ const MainView = ()=>{
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
-        fetch("https://openlibrary.org/search.json?q=star+wars").then((response)=>response.json()).then((data)=>{
-            console.log("books from api:", data);
+        fetch("https://myflix-api-1234.herokuapp.com/").then((response)=>response.json()).then((data)=>{
+            console.log("movies from api:", data);
         });
     }, []);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
