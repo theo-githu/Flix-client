@@ -27134,15 +27134,8 @@ const MainView = ()=>{
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
-        fetch("https://myflix-api-1234.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.movies.map((movie)=>{
-                return {
-                    id: movie._id,
-                    title: movie.Title,
-                    rating: movie.Rating
-                };
-            });
-            setMovies(moviesFromApi);
+        fetch("https://openlibrary.org/search.json?q=star+wars").then((response)=>response.json()).then((data)=>{
+            console.log("books from api:", data);
         });
     }, []);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
@@ -27151,14 +27144,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 26,
+        lineNumber: 19,
         columnNumber: 15
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 31,
+        lineNumber: 24,
         columnNumber: 16
     }, undefined);
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27169,12 +27162,12 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 37,
+                lineNumber: 30,
                 columnNumber: 11
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 35,
+        lineNumber: 28,
         columnNumber: 9
     }, undefined);
 };
@@ -27212,19 +27205,26 @@ const MovieCard = ({ movie , onMovieClick  })=>{
         lineNumber: 4,
         columnNumber: 14
     }, undefined);
-};
+}; // MovieCard.propTypes = {
+ //     movie: PropTypes.shape({
+ //         Title: PropTypes.string.isRequired,
+ //         Description: PropTypes.string.isRequired,
+ //         ImageURL: PropTypes.string.isRequired,
+ //         Director: PropTypes.shape({
+ //             Bio: PropTypes.string.isRequired
+ //         })
+ //     }).isRequired,
+ //     onMovieClick: PropTypes.func.isRequired
+ // };
+ // MovieCard.propTypes = {
+ //     movie: PropTypes.shape({
+ //         title: PropTypes.string.isRequired,
+ //         description: PropTypes.string.isRequired,
+ //         image: PropTypes.string.isRequired
+ //     }).isRequired,
+ //     onMovieClick: PropTypes.func.isRequired
+ // };
 _c = MovieCard;
-MovieCard.propTypes = {
-    movie: (0, _propTypesDefault.default).shape({
-        Title: (0, _propTypesDefault.default).string.isRequired,
-        Description: (0, _propTypesDefault.default).string.isRequired,
-        ImageURL: (0, _propTypesDefault.default).string.isRequired,
-        Director: (0, _propTypesDefault.default).shape({
-            Bio: (0, _propTypesDefault.default).string.isRequired
-        })
-    }).isRequired,
-    onMovieClick: (0, _propTypesDefault.default).func.isRequired
-};
 var _c;
 $RefreshReg$(_c, "MovieCard");
 
