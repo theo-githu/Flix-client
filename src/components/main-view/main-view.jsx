@@ -14,7 +14,7 @@ export const MainView = () => {
     }
 
     useEffect(() => {
-        fetch("https://myflix-api-1234.herokuapp.com/")
+        fetch("https://myflix-api-1234.herokuapp.com/movies")
           .then((response) => response.json())
           .then((data) => {
             console.log("movies from api:", data)
