@@ -4,9 +4,9 @@ import React from "react";
 export const MovieView = ({ movie, onBackClick }) => {
     return (
         <div>
-           <div>
+           {/* <div>
                 <img src={movie.ImageURL} />
-            </div>
+            </div> */}
             <div>
                 <span>Title:</span>
                 <span>{movie.Title}</span>
