@@ -27149,13 +27149,20 @@ const MainView = ()=>{
     (0, _react.useEffect)(()=>{
         fetch("https://myflix-api-1234.herokuapp.com/").then((response)=>response.json()).then((data)=>{
             console.log("movies from api:", data);
+            const moviesfromAPI = data.map((movie)=>{
+                return {
+                    id: movie._id,
+                    title: movie.title
+                };
+            });
+            setMovies(data);
         });
     }, []);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 25,
+        lineNumber: 32,
         columnNumber: 16
     }, undefined);
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27166,12 +27173,12 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 31,
+                lineNumber: 38,
                 columnNumber: 11
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 29,
+        lineNumber: 36,
         columnNumber: 9
     }, undefined);
 };
