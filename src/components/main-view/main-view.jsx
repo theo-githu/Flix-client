@@ -66,6 +66,7 @@ export const MainView = () => {
       } else 
       {
         return (
+          <>
         <div>
          {movies.map((movie) => (
           <MovieCard 
@@ -77,7 +78,8 @@ export const MainView = () => {
           />
           ))}
         </div>
-    )};
-    <button onClick={() => {setUser(null); setToken(null); 
+        <button onClick={() => {setUser(null); setToken(null); 
     localStorage.clear(); }}>Logout</button>
+        </>
+    )};
   };
