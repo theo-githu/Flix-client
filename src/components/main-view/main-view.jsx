@@ -14,6 +14,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
+
   
 
 
@@ -42,17 +43,18 @@ export const MainView = () => {
           })
       }, [token]);
 
-    if (!user) {
-      return (
-      <LoginView 
-      onLoggedIn={(user, token) => {
-        setUser(user);
-        setToken(token);
-      }} />
-      // or
-      // <SignupView/>
-      );
-    }  
+      if (!user) {
+        return (
+          <>
+            <LoginView onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
+            }} />
+            or
+            <SignupView />
+          </>
+        );
+      }
 
     if (selectedMovie) {
       return (<MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
