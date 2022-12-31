@@ -1,7 +1,10 @@
 
 import React from "react";
+import { useState, useEffect } from "react";
 
 export const LoginView = ({onLoggedIn}) => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const handleSubmit = (event) => {
         event.preventDefault(); //this prevents the default behaviour of the form which is to reload the entire page
 
@@ -10,7 +13,7 @@ export const LoginView = ({onLoggedIn}) => {
             secret: password
         }; 
 
-        fetch("https://myflix-api-1234.herokuapp.com/login", { //update to correct address
+        fetch("https://myflix-api-1234.herokuapp.com/login", { 
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
