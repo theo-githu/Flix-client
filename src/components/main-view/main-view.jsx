@@ -8,10 +8,7 @@ import { MovieView } from "../movie-view/movie-view";
 export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [movies, setMovies] = useState([]);
-    if (selectedMovie) {
-      return (<MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-      );
-    }
+
 
     useEffect(() => {
         fetch("https://myflix-api-1234.herokuapp.com/movies")
@@ -31,6 +28,11 @@ export const MainView = () => {
             setMovies(data)
           })
       }, []);
+
+    if (selectedMovie) {
+      return (<MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+      );
+    }
 
     if (movies.length === 0) {
         return <div>The list is empty!</div>;
