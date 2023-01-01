@@ -28395,8 +28395,8 @@ const LoginView = ({ onLoggedIn  })=>{
     const handleSubmit = (event)=>{
         event.preventDefault(); //this prevents the default behaviour of the form which is to reload the entire page
         const data = {
-            access: username,
-            secret: password
+            Username: username,
+            Password: password
         };
         fetch("https://myflix-api-1234.herokuapp.com/login", {
             method: "POST",
@@ -28425,9 +28425,7 @@ const LoginView = ({ onLoggedIn  })=>{
                         type: "text",
                         value: username,
                         onChange: (e)=>setUsername(e.target.value),
-                        required: true,
-                        minlength: "4",
-                        maxlength: "10"
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
                         lineNumber: 43,
@@ -28446,9 +28444,7 @@ const LoginView = ({ onLoggedIn  })=>{
                         type: "password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value),
-                        required: true,
-                        minlength: "4",
-                        maxlength: "10"
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
                         lineNumber: 54,
@@ -28512,7 +28508,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("https://myflix-api-1234.herokuapp.com/signup", {
+        fetch("https://myflix-api-1234.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -28533,9 +28529,7 @@ const SignupView = ()=>{
                         type: "text",
                         value: username,
                         onChange: (e)=>setUsername(e.target.value),
-                        required: true,
-                        minLength: "4",
-                        maxLength: "10"
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 38,
@@ -28554,9 +28548,7 @@ const SignupView = ()=>{
                         type: "password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value),
-                        required: true,
-                        minLength: "4",
-                        maxLength: "10"
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 49,
@@ -28591,7 +28583,7 @@ const SignupView = ()=>{
                 children: [
                     "Birthday:",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "birthday",
+                        type: "date",
                         value: birthday,
                         onChange: (e)=>setBirthday(e.target.value),
                         required: true

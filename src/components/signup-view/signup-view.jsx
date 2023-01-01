@@ -16,7 +16,7 @@ export const SignupView = () => {
             Birthday: birthday
         };
 
-        fetch("https://myflix-api-1234.herokuapp.com/signup", {
+        fetch("https://myflix-api-1234.herokuapp.com/users", {
             method: "POST", 
             body: JSON.stringify(data),
             headers: {
@@ -40,8 +40,8 @@ export const SignupView = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                minLength="4"
-                maxLength="10"
+                // minLength="4"
+                // maxLength="10"
                 />
             </label>
             <label>
@@ -51,8 +51,8 @@ export const SignupView = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                minLength="4"
-                maxLength="10"
+                // minLength="4"
+                // maxLength="10"
                 />
             </label>
             <label>
@@ -67,7 +67,7 @@ export const SignupView = () => {
             <label>
                 Birthday: 
                 <input 
-                type="birthday"
+                type="date"
                 value={birthday}
                 onChange={(e) => setBirthday(e.target.value)}
                 required

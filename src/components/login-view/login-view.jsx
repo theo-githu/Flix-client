@@ -9,8 +9,8 @@ export const LoginView = ({onLoggedIn}) => {
         event.preventDefault(); //this prevents the default behaviour of the form which is to reload the entire page
 
         const data = {
-            access: username, 
-            secret: password
+            Username: username, 
+            Password: password
         }; 
 
         fetch("https://myflix-api-1234.herokuapp.com/login", { 
@@ -45,8 +45,8 @@ export const LoginView = ({onLoggedIn}) => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                minlength="4"
-                maxlength="10"
+                // minlength="4"
+                // maxlength="10"
                 />
             </label>
             <label>
@@ -56,8 +56,8 @@ export const LoginView = ({onLoggedIn}) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                minlength="4"
-                maxlength="10"
+                // minlength="4"
+                // maxlength="10"
                 />
             </label>
             <button type="submit">Submit</button>
