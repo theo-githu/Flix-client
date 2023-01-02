@@ -50,7 +50,7 @@ export const MainView = () => {
               setUser(user);
               setToken(token);
             }} />
-            or
+            <br></br>
             <SignupView />
           </>
         );

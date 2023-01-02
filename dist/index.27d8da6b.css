@@ -1,3 +1,11 @@
+#main-container {
+  place-items: center;
+}
+
+#login-form {
+  max-width: 250px;
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -12007,7 +12015,17 @@ textarea.form-control-lg {
 
 body {
   min-height: 100vh;
-  background: #d3d3d3;
+  background-color: #ffdee9;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+  display: grid;
 }
 
-/*# sourceMappingURL=index.ce1d6491.css.map */
+#main-container {
+  place-items: center;
+}
+
+#signup-form {
+  max-width: 250px;
+}
+
+/*# sourceMappingURL=index.27d8da6b.css.map */

@@ -1,5 +1,8 @@
-$color: steelblue;
+@import "~bootstrap/scss/bootstrap";
 
-.my-flix {
-  color: $color;
+body {
+  display: grid;
+  background-color: #FFDEE9;
+  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  min-height: 100vh;
 }

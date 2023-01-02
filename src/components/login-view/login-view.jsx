@@ -1,6 +1,11 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
+import './login-view.scss';
 
 export const LoginView = ({onLoggedIn}) => {
     const [username, setUsername] = useState("");
@@ -37,30 +42,31 @@ export const LoginView = ({onLoggedIn}) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Username:
-                <input 
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                // minlength="4"
-                // maxlength="10"
-                />
-            </label>
-            <label>
-                Password:
-                <input 
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                // minlength="4"
-                // maxlength="10"
-                />
-            </label>
-            <button type="submit">Submit</button>
-        </form>
+        <Container id="main-container" className="d-grid h-50">
+            <Form onSubmit={handleSubmit} id="login-form" className="text-center w-100">
+                <h1 className="mb-3 fs-3 fw-normal">Login</h1>
+                <Form.Group controlId="loginUsername" className="mb-1">
+                    <Form.Control type="text" 
+                        placeholder="Username"
+                        size="sm"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="loginPassword" className="mb-2">
+                    <Form.Control type="password"
+                        placeholder="Password"
+                        size="sm"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required>
+                    </Form.Control>
+                </Form.Group>
+                <div className="mt-2 d-grid">
+                    <Button variant="primary" size="sm" type="submit">Submit</Button>
+                </div>
+            </Form>
+        </Container>
     );
 };
