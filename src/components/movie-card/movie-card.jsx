@@ -2,19 +2,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Container, Row, Col, Card } from "react-bootstrap"
+
+// import './movie-card.scss';
 
 export const MovieCard = ({movie, onMovieClick}) => {
     return ( 
-        <Card onClick={() => onMovieClick(movie)} variant="link">
-            <Card.Img variant="top" src={movie.URL}/>
-            <Card.Body>
-                <Card.Title>{movie.title}</Card.Title>
-            </Card.Body>
-        </Card>
+        <Container>
+            <Row>
+                <Col md={4}>
+                    <Card onClick={() => onMovieClick(movie)} className="mb-3">
+                        {/* <Card.Img variant="top" src={movie.imageURL}/> */}
+                        <Card.Body>
+                            <Card.Title>{movie.title}</Card.Title>
+                            {/* <Card.Text>{movie.rating}</Card.Text> */}
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
     );
 };
+
 
 MovieCard.propTypes = {
     movie: PropTypes.shape({

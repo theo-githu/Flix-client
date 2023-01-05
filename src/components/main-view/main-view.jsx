@@ -7,6 +7,9 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
@@ -14,9 +17,6 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-
-  
-
 
     useEffect(() => {
       if (!token) {
@@ -32,6 +32,7 @@ export const MainView = () => {
             const moviesfromAPI = data.map((movie) => {
               return {
                 id: movie._id,
+                image: movie.imageURL,
                 title: movie.Title,
                 description: movie.Description,
                 genre: movie.Genre.Name,
@@ -69,13 +70,14 @@ export const MainView = () => {
           <>
         <div>
          {movies.map((movie) => (
-          <MovieCard 
-            key={movie.id} 
-            movie={movie}
-            onMovieClick={(newSelectedMovie) => {
-                setSelectedMovie(newSelectedMovie);
-          }}
+          <Col key={movie.id} md={4}>
+            <MovieCard 
+              movie={movie}
+              onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+            }}
           />
+          </Col>
           ))}
         </div>
         <button onClick={() => {setUser(null); setToken(null); 
