@@ -2,28 +2,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Container, Row, Col, Card } from "react-bootstrap"
+import { Container, Row, Col, Card } from "react-bootstrap";
 
 // import './movie-card.scss';
 
+
 export const MovieCard = ({movie, onMovieClick}) => {
     return ( 
-        <Container>
-            <Row>
-                <Col md={4}>
-                    <Card onClick={() => onMovieClick(movie)} className="mb-3">
-                        {/* <Card.Img variant="top" src={movie.imageURL}/> */}
-                        <Card.Body>
-                            <Card.Title>{movie.title}</Card.Title>
-                            {/* <Card.Text>{movie.rating}</Card.Text> */}
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
+    <Card onClick={() => onMovieClick(movie)} className="h-100" >
+        <Card.Img variant="top" src={movie.ImageURL}/>
+        <Card.Body>
+            <Card.Title>{movie.Title}</Card.Title>
+            <Card.Text>Rating: {movie.Rating}</Card.Text>
+        </Card.Body>
+    </Card>
     );
 };
-
 
 MovieCard.propTypes = {
     movie: PropTypes.shape({
