@@ -16,7 +16,7 @@ export const MovieView = ({ movie, onBackClick }) => {
                     <Card.Text>Genre: {movie.Genre.Name} </Card.Text>
                     <Card.Text>Definition of Genre: {movie.Genre.Description}</Card.Text>
                     <Card.Text>Director: {movie.Director.Name}</Card.Text>
-                    <Card.Text>Imdb Rating: {movie.Rating}</Card.Text>
+                    <Card.Text>IMDb Rating: {movie.Rating}</Card.Text>
                     <Button onClick={onBackClick} variant="primary" size="sm">Back</Button>
                 </Card.Body>
             </Card>

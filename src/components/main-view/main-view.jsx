@@ -46,9 +46,9 @@ export const MainView = () => {
 
 
       return (
-        <Row> 
+        <Row className="justify-content-md-center"> 
           {!user ? (
-            <Col md={5}>
+            <Col md={5} className="mt-4">
               <LoginView onLoggedIn={(user, token) => {
               setUser(user);
               setToken(token);
@@ -57,7 +57,7 @@ export const MainView = () => {
               <SignupView />
             </Col>
           ) : selectedMovie ? (
-            <Col md={12}>
+            <Col md={12} className="mt-4">
               <MovieView 
               movie={selectedMovie} 
               onBackClick={() => setSelectedMovie(null)} 
@@ -83,6 +83,6 @@ export const MainView = () => {
       );
 };
 
-    <button onClick={() => {setUser(null); setToken(null); 
-    localStorage.clear(); }}>Logout</button>
+<button onClick={() => {setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
+ 
 

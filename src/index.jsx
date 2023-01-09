@@ -12,7 +12,7 @@ import "./index.scss";
 // Main component (will eventually use all the others)
 const App = () => {
   return (
-  <Container>
+  <Container className="mt-6">
     <MainView/>
   </Container>
 )};
