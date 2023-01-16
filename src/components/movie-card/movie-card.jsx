@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 // import './movie-card.scss';
 
@@ -14,6 +15,7 @@ export const MovieCard = ({movie, onMovieClick}) => {
         <Card.Body>
             <Card.Title>{movie.Title}</Card.Title>
             <Card.Text>Rating: {movie.Rating}</Card.Text>
+            <Link to={`/movies/${encodeURIComponent(movie.id)}`}></Link>
         </Card.Body>
     </Card>
     );
