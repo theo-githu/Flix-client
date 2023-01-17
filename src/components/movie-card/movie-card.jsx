@@ -13,7 +13,7 @@ export const MovieCard = ({movie, onMovieClick}) => {
         <Card.Img variant="top" src={movie.ImageURL}/>
         <Card.Body>
             <Card.Title>{movie.Title}</Card.Title>
-            <Card.Text>Rating: {movie.Rating}</Card.Text>
+            <Card.Text className="fw-light mb-0">Rating: {movie.Rating}</Card.Text>
         </Card.Body>
     </Card>
     );
