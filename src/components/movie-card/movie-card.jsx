@@ -9,11 +9,11 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 export const MovieCard = ({movie, onMovieClick}) => {
     return ( 
-    <Card onClick={() => onMovieClick(movie)} className="h-100" >
+    <Card onClick={() => onMovieClick(movie)} className="h-100 text-center" >
         <Card.Img variant="top" src={movie.ImageURL}/>
         <Card.Body>
             <Card.Title>{movie.Title}</Card.Title>
-            <Card.Text className="fw-light mb-0">Rating: {movie.Rating}</Card.Text>
+            <Card.Text className="fw-light">Rating: {movie.Rating}</Card.Text>
         </Card.Body>
     </Card>
     );

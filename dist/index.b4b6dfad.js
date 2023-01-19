@@ -27301,7 +27301,7 @@ var _reactBootstrap = require("react-bootstrap");
 const MovieCard = ({ movie , onMovieClick  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
         onClick: ()=>onMovieClick(movie),
-        className: "h-100",
+        className: "h-100 text-center",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
                 variant: "top",
@@ -27321,7 +27321,7 @@ const MovieCard = ({ movie , onMovieClick  })=>{
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                        className: "fw-light mb-0",
+                        className: "fw-light",
                         children: [
                             "Rating: ",
                             movie.Rating
