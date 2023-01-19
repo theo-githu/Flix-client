@@ -1,11 +1,9 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 
-import './login-view.scss';
+// import './login-view.scss';
 
 export const LoginView = ({onLoggedIn}) => {
     const [username, setUsername] = useState("");
@@ -42,8 +40,8 @@ export const LoginView = ({onLoggedIn}) => {
     };
 
     return (
-        <Container id="main-container" className="d-grid h-50">
-            <Form onSubmit={handleSubmit} id="login-form" className="text-center w-100">
+        <Container>
+            <Form onSubmit={handleSubmit} id="login-form" className="text-center text-white w-100">
                 <h1 className="mb-3 fs-3 fw-normal">Login</h1>
                 <Form.Group controlId="loginUsername" className="mb-1">
                     <Form.Control type="text" 

@@ -38,7 +38,7 @@ export const SignupView = () => {
 
     return (
         <Container id="main-container" className="d-grid h-35">
-            <Form onSubmit={handleSubmit} id="signup-form" className="text-center w-100">
+            <Form onSubmit={handleSubmit} id="signup-form" className="text-center text-white w-100">
                 <h1 className="mb-3 fs-3 fw-normal">Register</h1>
 
                 <Form.Group controlId="signupUsername" className="mb-1">

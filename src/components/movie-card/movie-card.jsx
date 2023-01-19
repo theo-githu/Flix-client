@@ -1,14 +1,21 @@
 
 import React from "react";
-
 import PropTypes from "prop-types";
 
+import { Container, Row, Col, Card } from "react-bootstrap";
+
+// import './movie-card.scss';
+
+
 export const MovieCard = ({movie, onMovieClick}) => {
-    return ( <div
-    onClick={() => {
-        onMovieClick(movie);
-    }}>
-        {movie.Title}</div>
+    return ( 
+    <Card onClick={() => onMovieClick(movie)} className="h-100 text-center" >
+        <Card.Img variant="top" src={movie.ImageURL}/>
+        <Card.Body>
+            <Card.Title>{movie.Title}</Card.Title>
+            <Card.Text className="fw-light">Rating: {movie.Rating}</Card.Text>
+        </Card.Body>
+    </Card>
     );
 };
 
