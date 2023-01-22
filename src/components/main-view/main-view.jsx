@@ -62,7 +62,7 @@ export const MainView = () => {
                 path="/signup"
                 element={
                   <>
-                    {!user ? (
+                    {user ? (
                       <Navigate to="/" />
                     ) : (
                       <Col md={5}>
@@ -76,10 +76,10 @@ export const MainView = () => {
                 path="/login"
                 element={
                   <>
-                    {!user ? (
+                    {user ? (
                     <Navigate to="/" />
                     ) : (
-                    <Col md={5}>
+                    <Col md={5} className="mt-6">
                       <LoginView 
                         onLoggedIn={(user, token) => {
                         setUser(user);

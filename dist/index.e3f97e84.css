@@ -1,8 +1,21 @@
-.formset {
-  justify-content: center;
+#container {
+  margin-top: 200px;
+}
+
+.moviecardview {
+  height: 640px;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
   align-items: center;
-  padding-top: 200px;
-  display: flex;
+}
+
+.rating {
+  text-align: center;
+  align-items: center;
+  font-weight: lighter;
 }
 
 :root {
@@ -12029,4 +12042,11 @@ body {
   max-width: 250px;
 }
 
-/*# sourceMappingURL=index.27d8da6b.css.map */
+.formset {
+  justify-content: center;
+  align-items: center;
+  padding-top: 200px;
+  display: flex;
+}
+
+/*# sourceMappingURL=index.e3f97e84.css.map */
