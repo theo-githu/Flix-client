@@ -7,9 +7,67 @@ import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 
 export const MovieView = ({ movies, user }) => {
-    const { movieId } = useParams();
-    const movie = movies.find((m) => m._id === movieId);
+    const storedToken = localStorage.getItem("token");
+    const [token] = useState(storedToken ? storedToken : null);
 
+    const { movieId } = useParams();
+
+    const [FavouriteMovies, setFavouriteMovies] = useState([]);
+    const getUser = (token) => {
+        fetch(`https://myflix-api-1234.herokuapp.com/users/${user.Username}`, {
+            method: "GET",
+            headers: {Authorization: `Bearer ${token}`},
+        })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log("Response: ", response);
+          setFavoriteMovies(response.FavoriteMovies);
+        });
+    };
+
+    useEffect(() => {
+        getUser(token);
+      }, []);
+
+    const addToFavorites = (movieId) => {
+    fetch(
+        `https://myflix-api-1234.herokuapp.com/users/${user.Username}/movies/${movieId}`,
+        {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+        }
+    ).then((response) => {
+        if (response.ok) {
+        window.location.reload();
+        } else {
+        alert("Something went wrong");
+        }
+    });
+    };
+
+    const removeFromFavorites = (movieID) => {
+        fetch(
+          `https://myflix-api-1234.herokuapp.com/users/${user.Username}/movies/${movieId}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((response) => {
+          if (response.ok) {
+            window.location.reload();
+          } else {
+            alert("Something went wrong");
+          }
+        });
+      };
+
+        const movie = movies.find((m) => m._id === movieId);
 
 
     return (
