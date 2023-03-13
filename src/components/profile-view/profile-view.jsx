@@ -68,7 +68,3 @@ export const ProfileView = ({ user, movies }) => {
         </Container>
     );
 }
-
-{/* <UserInfo name={user.Username} email={user.Email} />
-<FavouriteMovies favouriteMovieList={favouriteMovieList} />
-<UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} /> */}
