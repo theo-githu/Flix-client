@@ -1,36 +1,16 @@
 
 import React from "react";
-import { Container, Row, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
+import { MovieCard } from "../movie-card/movie-card";
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, user }) => {
     const { movieId } = useParams();
     const movie = movies.find((m) => m._id === movieId);
-    // const storedUser = JSON.parse(localStorage.getItem("user"));
-    // const token = localStorage.getItem("token");
 
-    // const addFavourite = (movieId) => {
-    //     if (!token) return;
 
-    //     const url = `https://myflix-api-1234.herokuapp.com/users/${storedUser.Username}/movies/${movieId}`;
-    //     const requestOptions = {
-    //         method: "POST",
-    //         headers: {
-    //             Authorization: `Bearer ${token}`,
-    //         },
-    //     };
-
-    //     fetch(url, requestOptions)
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             console.log(data);
-    //         })
-    //         .catch((e) => {
-    //             alert("Something has gone wrong");
-    //         });
-    // };
 
     return (
         <Container>
