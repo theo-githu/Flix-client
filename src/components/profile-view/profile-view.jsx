@@ -1,49 +1,74 @@
 
 import React, {useEffect, useState} from "react";
-import { Container, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import UserInfo from "./user-info";
 import FavouriteMovies from "./favourite-movies";
 import UpdateUser from "./update-user";
 
-export const ProfileView = ({ movies }) => {
+export const ProfileView = ({ user, movies }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    const [user, setUser] = useState(storedUser ? storedUser : null);
     const storedToken = localStorage.getItem("token");
-    const [token, setToken] = useState(storedToken ? storedToken : null);
+    const storedMovie = JSON.parse(localStorage.getItem("movies"));
+
+    const [token] = useState(storedToken ? storedToken : null);
     
-    const [username, setUsername] = useState(user.Username)
-    const [password, setPassword] = useState();
-    const [email, setEmail] = useState(user.Email);
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [birthday, setBirthday] = useState("");
+    const [favouriteMovies, setFavouriteMovies] = useState([]);
 
-    function handleResponse(response) {
-        re
+    const getUser = (token) => {
+        fetch(`https://myflix-api-1234.herokuapp.com/users/${user.Username}`, {
+            method: "GET",
+            headers: { Authorization: `Bearer ${token}`},
+        }), then(response => response.json())
+        .then((response) => {
+            console.log("getUser response", response)
+            setUsername(response.Username);
+            setEmail(response.Email);
+            setPassword(response.Password);
+            setBirthday(response.Birthday);
+            setFavouriteMovies(response.FavouriteMovies)
+        })
     }
-    }
-
-    const getUser = () => {
-
-    }
-    const handleSubmit = (e) => {
-
-    }
-    const removeFavourite = (id) => {
-
-    }
-    const handleUpdate = (e) => {
-
-    };
+    console.log("userFavouriteMovie", favouriteMovies)
 
     useEffect(() => {
-
+        getUser(token);
     }, [])
 
     return (
         <Container>
-            <UserInfo name={user.Username} email={user.Email} />
-            <FavouriteMovies favouriteMovieList={favouriteMovieList} />
-            <UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
+            <Row>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <div>
+                                <h5>User Information</h5>
+                                <p>Username: {username}</p>
+                                <p>Email: {email}</p>
+                                <p>Birthday: {birthday}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <UpdateForm user={user} />
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+            <Row>
+                <FavouriteMovies user={user} movies={movies} />
+            </Row>
         </Container>
     );
 }
+
+{/* <UserInfo name={user.Username} email={user.Email} />
+<FavouriteMovies favouriteMovieList={favouriteMovieList} />
+<UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} /> */}
