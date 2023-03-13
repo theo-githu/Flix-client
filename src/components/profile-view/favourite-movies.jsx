@@ -1,36 +1,38 @@
 import React, {useEffect, useState} from "react";
 import { Col, Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
-import { ProfileView } from "../profile-view/profile-view";
 import { MovieCard } from "../movie-card/movie-card";
 
-export const FavouriteMovies = ({user, movies}) => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = localStorage.getItem("token");
-    const storedMovie = JSON.parse(localStorage.getItem("movies"));
-
-    const [token] = useState(storedToken ? storedToken : null);
+export const FavouriteMovies = ({ storedUser, movies }) => {
+    const [user, setUser] = useState(storedUser ? storedUser : null);
     
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [birthday, setBirthday] = useState("");
-    const [favouriteMovies, setFavouriteMovies] = useState([]);
-
-    const getUser = (token) => {
-        fetch(`https://myflix-api-1234.herokuapp.com/users/${user.Username}`, {
-            method: "GET",
-            headers: { Authorization: `Bearer ${token}`},
-    }).then(response => response.json())
-    .then((response) => {
-        console.log("getUser response", response)
-        setUsername(response.Username)
-        setEmail(response.Email)
-        setPassword(response.Password)
-        setBirthday(response.Birthday);
-        setFavouriteMovies(response.FavouriteMovies)
-    })
-}
+    let favouriteMovieList = movies.filter((m) =>
+    user.FavouriteMovies.includes(m.id)    
+    );
+    
+    return (
+        <Row>
+            {favouriteMovieList.length === 0 ? (
+                <Col>You don't have any favourite movies!</Col>
+            ) : (
+                <>
+                <div className= 'text-start h3 mb-3'>Your Favourite Movies</div>
+                {/* {favouriteMovieList.map((movie) => (
+                    <Col className='mb-3' key={movie.id}
+                    <MovieCard>
+                    movieData={movie}
+                    user={user}
+                    updateUser={(user) => {
+                        console.log('Update user', user);
+                        setUser(user);
+                        localStorage.setItem('user', JSON.stringify(user));
+                    }}
+                    </MovieCard>
+                    </Col>
+                ))} */}
+                </>
+            )}
+        </Row>
+    )
 }
 

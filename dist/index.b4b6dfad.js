@@ -46681,68 +46681,6 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$3c12.prelude(module);
 
 try {
-// import React, {useEffect, useState} from "react";
-// import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
-// import { Link } from "react-router-dom";
-// import FavouriteMovies from "./favourite-movies";
-// import UpdateUser from "./update-user";
-// export const ProfileView = ({ user, movies }) => {
-//     const storedUser = JSON.parse(localStorage.getItem("user"));
-//     const storedToken = localStorage.getItem("token");
-//     const storedMovie = JSON.parse(localStorage.getItem("movies"));
-//     const [token] = useState(storedToken ? storedToken : null);
-//     const [username, setUsername] = useState('')
-//     const [password, setPassword] = useState('');
-//     const [email, setEmail] = useState('');
-//     const [birthday, setBirthday] = useState("");
-//     const [favouriteMovies, setFavouriteMovies] = useState([]);
-//     const getUser = (token) => {
-//         fetch(`https://myflix-api-1234.herokuapp.com/users/${user.Username}`, {
-//             method: "GET",
-//             headers: { Authorization: `Bearer ${token}`},
-//         }), then(response => response.json())
-//         .then((response) => {
-//             console.log("getUser response", response)
-//             setUsername(response.Username);
-//             setEmail(response.Email);
-//             setPassword(response.Password);
-//             setBirthday(response.Birthday);
-//             setFavouriteMovies(response.FavouriteMovies)
-//         })
-//     }
-//     console.log("userFavouriteMovie", favouriteMovies)
-//     useEffect(() => {
-//         getUser(token);
-//     }, [])
-//     return (
-//         <Container>
-//             <Row>
-//                 <Col>
-//                     <Card>
-//                         <Card.Body>
-//                             <div>
-//                                 <h5>User Information</h5>
-//                                 <p>Username: {username}</p>
-//                                 <p>Email: {email}</p>
-//                                 <p>Birthday: {birthday}</p>
-//                             </div>
-//                         </Card.Body>
-//                     </Card>
-//                 </Col>
-//                 <Col>
-//                     <Card>
-//                         <Card.Body>
-//                             <UpdateForm user={user} />
-//                         </Card.Body>
-//                     </Card>
-//                 </Col>
-//             </Row>
-//             <Row>
-//                 <FavouriteMovies user={user} movies={movies} />
-//             </Row>
-//         </Container>
-//     );
-// }
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProfileView", ()=>ProfileView);
@@ -46762,7 +46700,7 @@ const ProfileView = ({ movies  })=>{
                 user: storedUser
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 85,
+                lineNumber: 15,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _updateUser.UpdateUser), {
@@ -46770,7 +46708,7 @@ const ProfileView = ({ movies  })=>{
                 storedUser: storedUser
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 86,
+                lineNumber: 16,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deleteUser.DeleteUser), {
@@ -46778,7 +46716,7 @@ const ProfileView = ({ movies  })=>{
                 storedUser: storedUser
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 87,
+                lineNumber: 17,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favouriteMovies.FavouriteMovies), {
@@ -46786,7 +46724,7 @@ const ProfileView = ({ movies  })=>{
                 storedUser: storedUser
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 88,
+                lineNumber: 18,
                 columnNumber: 9
             }, undefined)
         ]
@@ -47025,41 +46963,40 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FavouriteMovies", ()=>FavouriteMovies);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
-var _reactRouterDom = require("react-router-dom");
-var _profileView = require("../profile-view/profile-view");
 var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
-const FavouriteMovies = ({ user , movies  })=>{
+const FavouriteMovies = ({ storedUser , movies  })=>{
     _s();
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = localStorage.getItem("token");
-    const storedMovie = JSON.parse(localStorage.getItem("movies"));
-    const [token] = (0, _react.useState)(storedToken ? storedToken : null);
-    const [username, setUsername] = (0, _react.useState)("");
-    const [password, setPassword] = (0, _react.useState)("");
-    const [email, setEmail] = (0, _react.useState)("");
-    const [birthday, setBirthday] = (0, _react.useState)("");
-    const [favouriteMovies, setFavouriteMovies] = (0, _react.useState)([]);
-    const getUser = (token)=>{
-        fetch(`https://myflix-api-1234.herokuapp.com/users/${user.Username}`, {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>response.json()).then((response)=>{
-            console.log("getUser response", response);
-            setUsername(response.Username);
-            setEmail(response.Email);
-            setPassword(response.Password);
-            setBirthday(response.Birthday);
-            setFavouriteMovies(response.FavouriteMovies);
-        });
-    };
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
+    let favouriteMovieList = movies.filter((m)=>user.FavouriteMovies.includes(m.id));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Row, {
+        children: favouriteMovieList.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+            children: "You don't have any favourite movies!"
+        }, void 0, false, {
+            fileName: "src/components/profile-view/favourite-movies.jsx",
+            lineNumber: 16,
+            columnNumber: 17
+        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "text-start h3 mb-3",
+                children: "Your Favourite Movies"
+            }, void 0, false, {
+                fileName: "src/components/profile-view/favourite-movies.jsx",
+                lineNumber: 19,
+                columnNumber: 17
+            }, undefined)
+        }, void 0, false)
+    }, void 0, false, {
+        fileName: "src/components/profile-view/favourite-movies.jsx",
+        lineNumber: 14,
+        columnNumber: 9
+    }, undefined);
 };
-_s(FavouriteMovies, "IUtiHcMpzizT+1gK9AW3DnNdIkc=");
+_s(FavouriteMovies, "drE/u6ltTGhNbJvlkllR9OyWTvc=");
 _c = FavouriteMovies;
 var _c;
 $RefreshReg$(_c, "FavouriteMovies");
@@ -47069,9 +47006,110 @@ $RefreshReg$(_c, "FavouriteMovies");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","../profile-view/profile-view":"2vVqf","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"66eot":[function(require,module,exports) {
+},{"react":"21dqq","react-bootstrap":"3AD9A","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","react/jsx-dev-runtime":"iTorj"}],"66eot":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1330.prelude(module);
 
-},{}],"fKFLs":[function(require,module,exports) {
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UserInfo", ()=>UserInfo);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+const UserInfo = ({ user  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+        className: "d-flex flex-column flex-lg-row ms-2 text-lg-center mt-lg-3 mt-3",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Username: "
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/user-info.jsx",
+                        lineNumber: 9,
+                        columnNumber: 13
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "fw-bolder",
+                        children: user.Username
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/user-info.jsx",
+                        lineNumber: 10,
+                        columnNumber: 13
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/user-info.jsx",
+                lineNumber: 8,
+                columnNumber: 11
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Email: "
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/user-info.jsx",
+                        lineNumber: 13,
+                        columnNumber: 13
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "fw-bolder",
+                        children: user.Email
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/user-info.jsx",
+                        lineNumber: 14,
+                        columnNumber: 13
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/user-info.jsx",
+                lineNumber: 12,
+                columnNumber: 11
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Birthday: "
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/user-info.jsx",
+                        lineNumber: 17,
+                        columnNumber: 13
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "fw-bolder",
+                        children: userBirthday
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/user-info.jsx",
+                        lineNumber: 18,
+                        columnNumber: 13
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/user-info.jsx",
+                lineNumber: 16,
+                columnNumber: 11
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/profile-view/user-info.jsx",
+        lineNumber: 7,
+        columnNumber: 9
+    }, undefined);
+};
+_c = UserInfo;
+var _c;
+$RefreshReg$(_c, "UserInfo");
+
+  $parcel$ReactRefreshHelpers$1330.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","react/jsx-dev-runtime":"iTorj"}],"fKFLs":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1aa7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
