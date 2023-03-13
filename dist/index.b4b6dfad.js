@@ -47106,7 +47106,8 @@ const DeleteUser = ({ storedToken , storedUser  })=>{
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                 onClick: ()=>handleDeregister(storedUser._id),
-                className: "button-delete",
+                className: "button-delete mt-3",
+                type: "submit",
                 variant: "danger",
                 children: "Delete Profile"
             }, void 0, false, {
